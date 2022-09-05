@@ -22,6 +22,11 @@
 .icon {
   cursor: pointer;
   font-weight: bold;
+  transition: 0.1s scale;
+}
+
+.icon:hover {
+  scale: 1.2;
 }
 
 .iconCheck {
