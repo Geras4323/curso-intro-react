@@ -8,37 +8,35 @@ import { CreateTodoButton } from './CreateTodoButton.js';
 
 
 function AppUI() {
+  const {
+    loading,
+    error,
+    searchedTodos,
+    toggleCompleteTodo,
+    deleteTodo,
+  } = React.useContext(TodoContext);
+
   return (
     <React.Fragment>
     <TodoCounter />
 
     <TodoSearch />
 
-    <TodoContext.Consumer>
-      {({
-        loading,
-        error,
-        searchedTodos,
-        toggleCompleteTodo,
-        deleteTodo,
-      }) => (
-        <TodoList>
-          {loading && <p>Loading your tasks</p>}
-          {error && <p>There's been an error</p>}
-          {(!loading && !searchedTodos.length) && <p>Create your first task</p>}
+    <TodoList>
+      {loading && <p>Loading your tasks</p>}
+      {error && <p>There's been an error</p>}
+      {(!loading && !searchedTodos.length) && <p>Create your first task</p>}
 
-          {searchedTodos.map(todo => (
-            <TodoItem
-              key={todo.text}
-              text={todo.text}
-              completed={todo.completed}
-              onComplete={() => toggleCompleteTodo(todo)}
-              onDelete={() => deleteTodo(todo.text)}
-            />
-          ))}
-        </TodoList>
-      )}
-    </TodoContext.Consumer>
+      {searchedTodos.map(todo => (
+        <TodoItem
+          key={todo.text}
+          text={todo.text}
+          completed={todo.completed}
+          onComplete={() => toggleCompleteTodo(todo)}
+          onDelete={() => deleteTodo(todo.text)}
+        />
+      ))}
+    </TodoList>
 
     <CreateTodoButton />
   </React.Fragment>
