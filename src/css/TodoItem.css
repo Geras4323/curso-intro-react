@@ -1,0 +1,45 @@
+.todoItem {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  font-family: 'Comfortaa', cursive;
+  font-size: 16px;
+}
+
+
+.item-p {
+  margin: 16px 36px 16px 24px;
+}
+
+.item-p-completed {
+  text-decoration: line-through;
+}
+
+
+.icon {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.iconCheck {
+  padding: 6px 8px 0 0;
+  font-size: 20px;
+  font-weight: bold;
+  transform: rotate(180deg);
+}
+
+.iconCheck-active {
+  color: green;
+}
+
+.iconDelete {
+  position: absolute;
+  right: 12px;
+}
+
+.iconDelete:hover {
+  color: red;
+}
