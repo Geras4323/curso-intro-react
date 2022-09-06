@@ -25,7 +25,8 @@ function useLocalStorage(itemName, initialValue) {
         setLoading(false);
       }
     }, 1000);
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   const saveItem = (newItem) => {

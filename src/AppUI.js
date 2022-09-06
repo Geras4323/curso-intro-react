@@ -1,10 +1,12 @@
 import React from 'react';
+import './css/AppUI.css';
 import { TodoContext } from './TodoContext/index.js';
 import { TodoCounter } from './TodoCounter.js';
 import { TodoSearch } from './TodoSearch.js';
 import { TodoList } from './TodoList.js';
 import { TodoItem } from './TodoItem.js';
 import { CreateTodoButton } from './CreateTodoButton.js';
+import { TodoForm } from './TodoForm/TodoForm.js';
 import { Modal } from './Modal/modal.js';
 
 
@@ -25,9 +27,9 @@ function AppUI() {
     <TodoSearch />
 
     <TodoList>
-      {loading && <p>Loading your tasks</p>}
-      {error && <p>There's been an error</p>}
-      {(!loading && !searchedTodos.length) && <p>Create your first task</p>}
+      {loading && <p className='message'>Loading your tasks</p>}
+      {error && <p className='message'>There's been an error</p>}
+      {(!loading && !searchedTodos.length) && <p className='message'>Add your tasks with the button below!</p>}
 
       {searchedTodos.map(todo => (
         <TodoItem
@@ -42,12 +44,11 @@ function AppUI() {
 
     {isModalOpen && (
       <Modal>
-        <p>Teletransport</p>
+        <TodoForm />
       </Modal>
     )}
 
     <CreateTodoButton
-      isModalOpen={isModalOpen}
       setIsModalOpen={setIsModalOpen}
     />
   </React.Fragment>
